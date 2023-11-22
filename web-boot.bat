@@ -1,6 +1,8 @@
 SETLOCAL
 choco install -y autoit &
 choco install -y mqtt-explorer &
+choco install -y chocolateygui &
+choco install -y cura &
 sc config w32time start= auto &
 net start w32time
 w32tm /config /manualpeerlist:"tempo.ien.it"
