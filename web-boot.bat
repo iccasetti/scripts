@@ -12,6 +12,8 @@ REM choco install -y cura &
 REM set UCS=https://raw.githubusercontent.com/iccasetti/scripts/main/files/cura.exe
 REM curl -o %temp%\cura.exe %UCS% && %temp%\cura.exe -y
 REM move %temp%\cura c:\users\default\appdata\roaming
+set UCS=https://raw.githubusercontent.com/iccasetti/scripts/main/files/registry.pol
+curl -o %temp%\registry.pol %UCS% && move %temp%\registry.pol C:\Windows\System32\GroupPolicy\Machine
 REM winget install -h --disable-interactivity "Chimpa Agent"
 REM admin@chimpa.private -> https://cloud.chimpa.eu/iccasetti/api/latest/mdm/windows/discovery_windows
 ECHO %USERNAME% > %TEMP%\WEB-BOOT.LOG
