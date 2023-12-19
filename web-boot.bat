@@ -4,7 +4,8 @@ net start w32time
 w32tm /config /manualpeerlist:"tempo.ien.it"
 w32tm /resync /nowait & 
 schtasks /Delete /TN "upd" /F
-REG DELETE "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy Objects\{46B3FB07-BBF9-493F-BC99-D6521BA4C043}Machine\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /VA /F
+REM REG DELETE "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy Objects\{46B3FB07-BBF9-493F-BC99-D6521BA4C043}Machine\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /VA /F
+choco install -y cricutdesignspace & 
 REM choco install -y autoit &
 REM choco install -y mqtt-explorer &
 REM choco install -y chocolateygui &
