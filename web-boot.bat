@@ -2,6 +2,8 @@ REM Boot checks
 
 SETLOCAL
 
+ECHO %computername% |findstr /i SERVER && EXIT 
+
 :TIMERS
 REM regolo l'orologio e lo imposto perché recuperi sempre l'ora dal web 
 sc config w32time start= auto &
