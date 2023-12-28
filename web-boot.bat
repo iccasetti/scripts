@@ -57,7 +57,11 @@ curl -o %temp%\cds.exe %UCS% && %temp%\cds.exe -y
 move %temp%\CdS c:\Apps\
 copy "c:\apps\cds\Cricut Design Space.lnk" c:\users\public\desktop
 
+:FIX
+icacls c:\apps\cds /grant everyone:F /T
+
 :OFFSITE
+
 
 :LOG
 REM winget install -h --disable-interactivity "Chimpa Agent"
