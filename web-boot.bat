@@ -54,7 +54,7 @@ move %temp%\cura c:\users\default\appdata\roaming
 dir c:\apps\cds\c*.exe && GOTO LOG
 set UCS=http://192.168.100.2/sw/cds.exe
 curl -o %temp%\cds.exe %UCS% && %temp%\cds.exe -y
-move %temp%\CdS c:\Apps\CdS
+move %temp%\CdS c:\Apps\
 copy "c:\apps\cds\Cricut Design Space.lnk" c:\users\public\desktop
 
 :OFFSITE
