@@ -35,6 +35,7 @@ curl -o %temp%\cura.msi %UCS% && %temp%\cura.msi /passive /norestart
 set UCS=http://192.168.100.2/sw/cura.exe
 curl -o %temp%\cura.exe %UCS% && %temp%\cura.exe -y
 move %temp%\cura c:\users\default\appdata\roaming
+
 :LOG
 REM winget install -h --disable-interactivity "Chimpa Agent"
 REM admin@chimpa.private -> https://cloud.chimpa.eu/iccasetti/api/latest/mdm/windows/discovery_windows
