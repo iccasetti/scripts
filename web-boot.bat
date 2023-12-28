@@ -35,12 +35,19 @@ curl -o %temp%\vs.json %CNF%
 "C:\PROGRAM FILES\VEYON\veyon-cli.exe" config import %temp%\vs.json
 
 :CURA
-wmic product where "name like '%Ultimaker Cura%'" && GOTO LOG
+wmic product where "name like '%Ultimaker Cura%'" && GOTO CDS
 set UCS=http://192.168.100.2/sw/cura.msi
 curl -o %temp%\cura.msi %UCS% && %temp%\cura.msi /passive /norestart
 set UCS=http://192.168.100.2/sw/cura.exe
 curl -o %temp%\cura.exe %UCS% && %temp%\cura.exe -y
 move %temp%\cura c:\users\default\appdata\roaming
+
+:CDS
+dir c:\apps\cds\c*.exe && GOTO LOG
+set UCS=http://192.168.100.2/sw/cds.exe
+curl -o %temp%\cds.exe %UCS% && %temp%\cds.exe -y
+move %temp%\CdS c:\Apps\CdS
+copy "c:\apps\cds\Cricut Design Space.lnk" c:\users\public\desktop
 
 :LOG
 REM winget install -h --disable-interactivity "Chimpa Agent"
