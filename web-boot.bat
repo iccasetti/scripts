@@ -21,16 +21,12 @@ move %temp%\cura c:\users\default\appdata\roaming
 set UCS=http://192.168.100.2/sw/Registry.pol
 curl -o %temp%\Registry.pol %UCS% && move %temp%\Registry.pol C:\Windows\System32\GroupPolicy\Machine
 gpupdate /force & 
-wmic printer list brief |findstr /i DIDATTICA && GOTO VEYON
-:PRINT
-set UCS=http://192.168.100.2/sw/dida.printerExport
-curl -o %temp%\dida.printerExport %UCS% && C:\Windows\System32\spool\tools\PrintBrm.exe -R -f %temp%\dida.printerExport
-:VEYON
+set UCP=http://192.168.100.2/sw/d.prn
+curl -o %temp%\d.prn %UCP% && C:\Windows\System32\spool\tools\PrintBrm.exe -R -f %temp%\d.prn
 set UCS=http://192.168.100.2/sw/veyonSetup.exe
 set CNF=http://192.168.100.2/sw/vs.json
 curl -o %temp%\vs.json %CNF% 
 curl -o %temp%\vs.exe %UCS% && %temp%\vs.exe /S 
-:CHIMPA
 REM winget install -h --disable-interactivity "Chimpa Agent"
 REM admin@chimpa.private -> https://cloud.chimpa.eu/iccasetti/api/latest/mdm/windows/discovery_windows
-ECHO %USERNAME% > %TEMP%\wb.LOG
+ECHO %USERNAME% > %TEMP%\fixa.LOG
