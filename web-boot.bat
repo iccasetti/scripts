@@ -1,3 +1,5 @@
+REM Boot checks
+
 SETLOCAL
 
 :TIME
