@@ -22,11 +22,17 @@ set UCP=http://192.168.100.2/sw/d.prn
 curl -o %temp%\d.prn %UCP% && C:\Windows\System32\spool\tools\PrintBrm.exe -R -f %temp%\d.prn
 
 :VEYON
-sc query |findstr /i veyon && GOTO CURA
+sc query |findstr /i veyon && GOTO VEYONCONF
 set UCS=http://192.168.100.2/sw/veyonSetup.exe
 set CNF=http://192.168.100.2/sw/vs.json
 curl -o %temp%\vs.json %CNF% 
 curl -o %temp%\vs.exe %UCS% && %temp%\vs.exe /S /ApplyConfig=%TEMP%\vs.json 
+GOTO CURA
+
+:VEYONCONF
+set CNF=http://192.168.100.2/sw/vs.json
+curl -o %temp%\vs.json %CNF% 
+"C:\PROGRAM FILES\VEYON\veyon-cli.exe" config import %temp%vs.json
 
 :CURA
 wmic product where "name like '%Ultimaker Cura%'" && GOTO LOG
