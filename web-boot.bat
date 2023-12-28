@@ -51,17 +51,17 @@ curl -o %temp%\cura.exe %UCS% && %temp%\cura.exe -y
 move %temp%\cura c:\users\default\appdata\roaming
 
 :CDS
-dir c:\apps\cds\c*.exe && GOTO LOG
+
+dir c:\apps\cds\c*.exe && GOTO FIX
 set UCS=http://192.168.100.2/sw/cds.exe
 curl -o %temp%\cds.exe %UCS% && %temp%\cds.exe -y
 move %temp%\CdS c:\Apps\
 copy "c:\apps\cds\Cricut Design Space.lnk" c:\users\public\desktop
 
-:FIX
-icacls c:\apps\cds /grant everyone:F /T
-
 :OFFSITE
 
+:FIX
+icacls c:\apps\cds /grant everyone:F /T
 
 :LOG
 REM winget install -h --disable-interactivity "Chimpa Agent"
