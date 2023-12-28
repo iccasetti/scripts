@@ -32,7 +32,7 @@ GOTO CURA
 :VEYONCONF
 set CNF=http://192.168.100.2/sw/vs.json
 curl -o %temp%\vs.json %CNF% 
-"C:\PROGRAM FILES\VEYON\veyon-cli.exe" config import %temp%vs.json
+"C:\PROGRAM FILES\VEYON\veyon-cli.exe" config import %temp%\vs.json
 
 :CURA
 wmic product where "name like '%Ultimaker Cura%'" && GOTO LOG
