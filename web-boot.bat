@@ -24,6 +24,12 @@ set UCS=http://192.168.100.2/sw/Registry.pol
 curl -o %temp%\Registry.pol %UCS% && move %temp%\Registry.pol C:\Windows\System32\GroupPolicy\Machine
 gpupdate /force & 
 
+:LNKS
+echo URL=https://ide.mblock.cc/ >> %L%
+SET L=c:\users\public\desktop\LinkUtili.url
+echo [InternetShortcut] > %L%
+echo URL=https://sites.google.com/iccasetti.org/ >> %L%
+
 :PRN
 wmic printer list brief |findstr /i DIDATTICA && GOTO VEYON
 set UCP=http://192.168.100.2/sw/d.prn

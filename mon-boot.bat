@@ -10,9 +10,15 @@ sc config w32time start= auto &
 net start w32time
 w32tm /config /manualpeerlist:"tempo.ien.it"
 w32tm /resync /nowait 
-net localgroup masters && GOTO POL
+net localgroup masters && GOTO LNKS
 net localgroup masters /add
 net localgroup masters docenti /add
+
+:LNKS
+echo URL=https://ide.mblock.cc/ >> %L%
+SET L=c:\users\public\desktop\LinkUtili.url
+echo [InternetShortcut] > %L%
+echo URL=https://sites.google.com/iccasetti.org/ >> %L%
 
 :PRN
 wmic printer list brief |findstr /i LEXMARK && GOTO VEYON
