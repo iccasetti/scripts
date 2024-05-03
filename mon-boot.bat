@@ -15,10 +15,9 @@ net localgroup masters /add
 net localgroup masters docenti /add
 
 :LNKS
-echo URL=https://ide.mblock.cc/ >> %L%
 SET L=c:\users\public\desktop\LinkUtili.url
 echo [InternetShortcut] > %L%
-echo URL=https://sites.google.com/iccasetti.org/ >> %L%
+echo URL=https://sites.google.com/iccasetti.org/info >> %L%
 
 :PRN
 wmic printer list brief |findstr /i LEXMARK && GOTO VEYON

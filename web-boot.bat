@@ -25,10 +25,9 @@ curl -o %temp%\Registry.pol %UCS% && move %temp%\Registry.pol C:\Windows\System3
 gpupdate /force & 
 
 :LNKS
-echo URL=https://ide.mblock.cc/ >> %L%
 SET L=c:\users\public\desktop\LinkUtili.url
 echo [InternetShortcut] > %L%
-echo URL=https://sites.google.com/iccasetti.org/ >> %L%
+echo URL=https://sites.google.com/iccasetti.org/info >> %L%
 
 :PRN
 wmic printer list brief |findstr /i DIDATTICA && GOTO VEYON
