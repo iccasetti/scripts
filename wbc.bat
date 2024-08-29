@@ -1,6 +1,9 @@
 REM Boot checks
 
 SETLOCAL
+<<<<<<< HEAD
+ECHO %USERNAME% > %TEMP%\WEB-BOOT.LOG
+=======
 
 ECHO %computername% |findstr /i SERVER && EXIT 
 
@@ -73,3 +76,4 @@ REM winget install -h --disable-interactivity "Chimpa Agent"
 REM admin@chimpa.private -> https://cloud.chimpa.eu/iccasetti/api/latest/mdm/windows/discovery_windows
 ECHO %USERNAME% > %TEMP%\wb.LOG
 
+>>>>>>> 8c94b8aa2ad37db2c91293d8a17d9a30b9aa4f9a
