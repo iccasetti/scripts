@@ -59,7 +59,7 @@ move %temp%\cura c:\users\default\appdata\roaming
 
 :CDS
 
-dir c:\apps\cds\c*.exe && GOTO FIX
+dir c:\apps\cds\c*.exe && GOTO SCRATCHLINK
 set UCS=http://192.168.100.2/sw/cds.exe
 curl -o %temp%\cds.exe %UCS% && %temp%\cds.exe -y
 move %temp%\CdS c:\Apps\
