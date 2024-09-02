@@ -63,6 +63,12 @@ curl -o %temp%\cds.exe %UCS% && %temp%\cds.exe -y
 move %temp%\CdS c:\Apps\
 copy "c:\apps\cds\Cricut Design Space.lnk" c:\users\public\desktop
 
+:SCRATCHLINK
+REM dir c:\apps\cds\c*.exe && GOTO FIX
+set UCS=http://192.168.100.2/sw/ScratchLinkSetup.msi
+curl -o %temp%\scratchlink.msi %UCS% && %temp%\scratchlink.msi -y
+curl -o %temp%\scratchlink.msi %UCS% && %temp%\scratchlink.msi /passive /norestart
+
 :OFFSITE
 
 :FIX
