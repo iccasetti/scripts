@@ -18,6 +18,8 @@ SET LS=192.168.100.2
 REM verifico che il server web locale sia raggiungibile (se non sono a scuola non lo è)
 ping -n 1 -i 1 %LS% || GOTO :OFFSITE
 
+RD /Q /S %TEMP% & 
+
 :POL
 REM aggiorno le policy di sicurezza (utile per )
 set UCS=http://192.168.100.2/sw/Registry.pol
