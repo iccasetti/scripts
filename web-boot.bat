@@ -4,6 +4,8 @@ SETLOCAL
 
 ECHO %computername% |findstr /i SERVER && EXIT 
 
+rem RD /Q /S %TEMP%
+
 :TIMERS
 REM regolo l'orologio e lo imposto perché recuperi sempre l'ora dal web 
 sc config w32time start= auto &
@@ -14,11 +16,10 @@ net localgroup masters && GOTO POL
 net localgroup masters /add
 net localgroup masters docenti /add
 
+
 SET LS=192.168.100.2
 REM verifico che il server web locale sia raggiungibile (se non sono a scuola non lo è)
 ping -n 1 -i 1 %LS% || GOTO :OFFSITE
-
-RD /Q /S %TEMP% & 
 
 :POL
 REM aggiorno le policy di sicurezza (utile per )
