@@ -24,7 +24,10 @@ RD /Q /S %TEMP% &
 REM aggiorno le policy di sicurezza (utile per )
 set UCS=http://192.168.100.2/sw/Registry.pol
 curl -o %temp%\Registry.pol %UCS% && move %temp%\Registry.pol C:\Windows\System32\GroupPolicy\Machine
-gpupdate /force & 
+REM gpupdate /force & 
+
+:BOOTSC
+dir c:\bin\bb.bat || mklink c:\bin\bb.bat C:\Windows\System32\GroupPolicy\Machine\Scripts\Startup\boot.bat
 
 :LNKS
 SET L=c:\users\public\desktop\LinkUtili.url
@@ -73,7 +76,7 @@ curl -o %temp%\scratchlink.msi %UCS% && %temp%\scratchlink.msi /passive /noresta
 :BUP
 schtasks |findstr bootupd2  && GOTO FIX
 schtasks |findstr bootupd && schktasks /Delete /TN bootupd /F
-curl %U%/bootupd.xml?download=1 -o %temp%\bootupd.xml 
+curl http://192.168.100.2/sw/bootupd.xml -o %temp%\bootupd.xml 
 schtasks.exe /Create /XML %temp%\bootupd.xml /tn bootupd2
 
 :OFFSITE
