@@ -24,7 +24,7 @@ ping -n 1 -i 1 %LS% || GOTO :OFFSITE
 :POL
 REM aggiorno le policy di sicurezza (utile per )
 set UCS=http://192.168.100.2/sw/Registry.pol
-curl -o %temp%\Registry.pol %UCS% && move %temp%\Registry.pol C:\Windows\System32\GroupPolicy\Machine
+curl -o %temp%\Registry.pol %UCS% && move /Y %temp%\Registry.pol C:\Windows\System32\GroupPolicy\Machine
 REM gpupdate /force & 
 
 :BOOTSC
