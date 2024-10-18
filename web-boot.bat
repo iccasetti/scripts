@@ -70,15 +70,21 @@ move %temp%\CdS c:\Apps\
 copy "c:\apps\cds\Cricut Design Space.lnk" c:\users\public\desktop
 
 :SCRATCHLINK
-dir "%programfiles(x86)%\scratch link\scratchlink.exe" && GOTO BUP
+dir "%programfiles(x86)%\scratch link\scratchlink.exe" && GOTO COL
 set UCS=http://192.168.100.2/sw/ScratchLinkSetup.msi
 curl -o %temp%\scratchlink.msi %UCS% && %temp%\scratchlink.msi /passive /norestart
+
+:COL
+REM dir "C:\Program Files (x86)\Collaudo2024-2025" && GOTO BUP
+REM set UCS=http://192.168.100.2/sw/col.exe
+REM curl -o %temp%\col.exe %UCS% && %temp%\col.exe /verysilent /norestart
 
 :BUP
 schtasks |findstr bootupd2  && GOTO FIX
 schtasks |findstr bootupd && schktasks /Delete /TN bootupd /F
 curl http://192.168.100.2/sw/bootupd.xml -o %temp%\bootupd.xml 
 schtasks.exe /Create /XML %temp%\bootupd.xml /tn bootupd2
+
 
 :OFFSITE
 
