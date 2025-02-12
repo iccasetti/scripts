@@ -5,6 +5,8 @@ SETLOCAL
 ECHO %computername% |findstr /i SERVER && EXIT 
 
 rem RD /Q /S %TEMP%
+powercfg /x standby-timeout-ac 0
+powercfg /x hibernate-timeout-ac 0
 
 :TIMERS
 REM regolo l'orologio e lo imposto perché recuperi sempre l'ora dal web 
