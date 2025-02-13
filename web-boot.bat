@@ -5,8 +5,16 @@ SETLOCAL
 ECHO %computername% |findstr /i SERVER && EXIT 
 
 rem RD /Q /S %TEMP%
+
+:PWR
 powercfg /x standby-timeout-ac 0
 powercfg /x hibernate-timeout-ac 0
+
+:FIRE
+netsh advfirewall firewall add rule name="veyon_server" dir=in action=allow program="C:\Program Files\Veyon\veyon-server.exe" enable=yes
+netsh advfirewall firewall add rule name="veyon_wcli" dir=in action=allow program="C:\Program Files\Veyon\veyon-wcli.exe" enable=yes
+netsh advfirewall firewall add rule name="veyon_worker" dir=in action=allow program="C:\Program Files\Veyon\veyon-worker.exe" enable=yes
+netsh advfirewall firewall add rule name="veyon_service" dir=in action=allow program="C:\Program Files\Veyon\veyon-service.exe" enable=yes
 
 :TIMERS
 REM regolo l'orologio e lo imposto perché recuperi sempre l'ora dal web 
