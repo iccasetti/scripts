@@ -16,6 +16,8 @@ netsh advfirewall firewall add rule name="veyon_wcli" dir=in action=allow progra
 netsh advfirewall firewall add rule name="veyon_worker" dir=in action=allow program="C:\Program Files\Veyon\veyon-worker.exe" enable=yes
 netsh advfirewall firewall add rule name="veyon_service" dir=in action=allow program="C:\Program Files\Veyon\veyon-service.exe" enable=yes
 
+netsh advfirewall firewall add rule name="lm" dir=in action=allow program="C:\Program Files (x86)\LiteManager Pro - Server\ROMServer.exe" enable=yes
+
 :TIMERS
 REM regolo l'orologio e lo imposto perché recuperi sempre l'ora dal web 
 sc config w32time start= auto &
