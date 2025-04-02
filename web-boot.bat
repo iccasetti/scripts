@@ -6,8 +6,9 @@ ECHO %computername% |findstr /i SERVER && EXIT
 
 rem RD /Q /S %TEMP%
 
-
-
+:INVALSI
+SET IL=https://github.com/iccasetti/scripts/raw/refs/heads/main/files/INVALSI2025.lnk
+curl -o %temp%\INVALSI2025.lnk %IL% && copy /Y %temp%\INVALSI2025.lnk c:\users\public\desktop
 
 :PWR
 powercfg /x standby-timeout-ac 0
