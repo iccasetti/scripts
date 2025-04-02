@@ -6,6 +6,9 @@ ECHO %computername% |findstr /i SERVER && EXIT
 
 rem RD /Q /S %TEMP%
 
+
+
+
 :PWR
 powercfg /x standby-timeout-ac 0
 powercfg /x hibernate-timeout-ac 0
