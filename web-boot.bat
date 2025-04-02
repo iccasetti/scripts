@@ -6,10 +6,6 @@ ECHO %computername% |findstr /i SERVER && EXIT
 
 rem RD /Q /S %TEMP%
 
-:INVALSI
-SET IL=https://github.com/iccasetti/scripts/raw/refs/heads/main/files/INVALSI2025.lnk
-curl -o %temp%\INVALSI2025.lnk %IL% && copy /Y %temp%\INVALSI2025.lnk c:\users\public\desktop
-
 :PWR
 powercfg /x standby-timeout-ac 0
 powercfg /x hibernate-timeout-ac 0
@@ -36,6 +32,10 @@ net localgroup masters docenti /add
 SET LS=192.168.100.2
 REM verifico che il server web locale sia raggiungibile (se non sono a scuola non lo è)
 ping -n 1 -i 1 %LS% || GOTO :OFFSITE
+
+:INVALSI
+SET IL=http://192.168.100.2/sw/INVALSI2025.lnk
+curl -o %temp%\INVALSI2025.lnk %IL% && copy /Y %temp%\INVALSI2025.lnk c:\users\public\desktop
 
 :POL
 REM aggiorno le policy di sicurezza (utile per )
