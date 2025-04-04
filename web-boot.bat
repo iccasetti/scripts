@@ -34,8 +34,8 @@ REM verifico che il server web locale sia raggiungibile (se non sono a scuola no
 ping -n 1 -i 1 %LS% || GOTO :OFFSITE
 
 :INVALSI
-SET IL=http://192.168.100.2/sw/INVALSI2025.lnk
-curl -o %temp%\INVALSI2025.lnk %IL% && copy /Y %temp%\INVALSI2025.lnk c:\users\public\desktop
+REM SET IL=http://192.168.100.2/sw/INVALSI2025.lnk
+REM curl -o %temp%\INVALSI2025.lnk %IL% && copy /Y %temp%\INVALSI2025.lnk c:\users\public\desktop
 
 :POL
 REM aggiorno le policy di sicurezza (utile per )
